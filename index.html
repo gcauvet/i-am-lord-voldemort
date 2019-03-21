@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="description" content="Percentage Calculator">
+
+    	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <style>
+            .floatRight {float: right;}
+        </style>
+
+    </head>
+
+    <body>
+        <div class="container">
+
+            <div class="row">
+                <div class='card-panel col s12'>
+                    <h5> I AM LORD VOLDEMORT !
+                        <span class='floatRight'>
+                            <!-- <a href='../' class='waves-effect waves-teal btn-flat btn-large'>  <i class="material-icons">add</i>Back</a> -->
+                            <a href='../' class="waves-effect waves-teal btn-flat btn-small"><i class="material-icons left">chevron_left</i>Back</a>
+                        </span>
+                    </h5>
+                </div>
+            </div>
+
+            <div class="row">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s4">
+                            <input id="is" type="text" value="I am lord Voldemort">
+                            <label for="is" class="active">Is</label>
+                            <span class="helper-text">an anagram</span>
+                        </div>
+                        <div class="input-field col s4">
+                            <input id="of" type="text" value="Mr Tom a dildo lover">
+                            <label for="of" class="active">Of</label>
+                        </div>
+                            <div class="input-field col s1">
+                              <a id="anagramCheck" class="btn-floating btn-large waves-effect waves-light"><i class="material-icons">input</i></a>
+                        </div>
+                        <div class="input-field col s3">
+                            <input disabled id="result" type="text">
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="row">
+                2019 - Smaha - <a href="https://www.smaha-consulting.com">https://www.smaha-consulting.com</a>
+            </div>
+        </div>
+
+
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+        <script type="text/javascript">
+
+            M.updateTextFields();
+
+            const inputToArray = (input) => input.val().toUpperCase().trim().split('');
+            const isAnAnagram = (input1, input2) => input1.every(e => input2.includes(e));
+
+            $("#anagramCheck").on("click", function() {
+
+                const is = inputToArray($('#is'));
+                const of = inputToArray($('#of'));
+
+                $('#result').val(`${isAnAnagram(is, of)} / ${isAnAnagram(of, is)}`);
+            });
+
+        </script>
+    </body>
+</html>
